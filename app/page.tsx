@@ -72,7 +72,9 @@ import Image from "next/image";
 
 const categories = [
   {
+
     title: "Mano y agarre",
+    tag: "Mano",
     desc: "Adaptaciones para mejorar pinza, agarre y estabilidad (artritis, artrosis, debilidad).",
     items: ["Engrosadores de utensilios", "Ayudas para escritura", "Agarres personalizados"],
   },
@@ -118,16 +120,20 @@ const steps = [
 
 const cases = [
   {
+    slug: "engrosador-cubiertos",
     title: "Ayuda de agarre para cubiertos",
     tag: "Mano",
     desc: "Engrosador personalizado para mejorar agarre y reducir dolor al comer.",
+    image: "/casos/engrosadorCubiertos.webp",
   },
   {
+    slug: "ferula-muneca",
     title: "Férula liviana de muñeca",
     tag: "Muñeca",
     desc: "Soporte para actividades, ajustado con evaluación clínica.",
   },
   {
+    slug: "adaptacion-lapicera",
     title: "Adaptación para lapicera",
     tag: "Agarre",
     desc: "Mejor control y menos fatiga al escribir.",
@@ -215,7 +221,7 @@ export default function Page() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70">
               <span className="h-2 w-2 rounded-full bg-cyan-400" />
-              Impresión 3D aplicada a rehabilitación
+              Soluciones funcionales personalizadas, con soporte profesional
             </div>
             
          {/* <div className="mb-8 flex justify-center md:justify-start">
@@ -255,19 +261,39 @@ export default function Page() {
 
 
 
-            <h1 className="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
+            {/* <h1 className="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
               Adaptaciones 3D para{" "}
               <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-300 bg-clip-text text-transparent">
                 manos, brazos y piernas
               </span>
+            </h1> */}
+            <h1 className="mt-5 text-4xl font-semibold leading-tight md:text-5xl">
+              Soluciones 
+               <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-300 bg-clip-text text-transparent">
+                {" "} funcionales
+              </span>
+              {" "}
+              <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-300 bg-clip-text text-transparent">
+                personalizadas
+              </span>
+                , con soporte
+              <span className="bg-gradient-to-r from-cyan-300 to-fuchsia-300 bg-clip-text text-transparent">
+                 {" "} profesional
+              </span>
+              
             </h1>
+            <p className="mt-4 max-w-xl text-base text-white/70 md:text-lg">
+            Adaptaciones impresas en 3D para manos, brazos y piernas, diseñadas junto a
+            fisioterapia, terapia ocupacional e ingeniería.
+          </p>
 
+{/* 
             <p className="mt-4 max-w-xl text-base text-white/70 md:text-lg">
               Diseñamos e imprimimos férulas y ayudas funcionales para artrosis,
               artritis y necesidades de movilidad. Trabajo coordinado con{" "}
               <span className="text-white">fisioterapia</span> y{" "}
               <span className="text-white">terapia ocupacional</span>.
-            </p>
+            </p> */}
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
               <a
@@ -429,7 +455,14 @@ export default function Page() {
                     {c.tag}
                   </span>
                   <span className="text-xs text-white/40 group-hover:text-white/60">
+                   <a
+                    href={`/casos/${c.slug}`}
+                    className="text-xs text-white/40 group-hover:text-white/60"
+                  >
                     ver más →
+                  </a>
+
+
                   </span>
                 </div>
                 <div className="mt-4 text-lg font-semibold">{c.title}</div>
@@ -438,7 +471,14 @@ export default function Page() {
                 {/* Placeholder image block */}
                 <div className="mt-5 aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-black/10">
                   <div className="grid h-full place-items-center text-xs text-white/40">
-                    Foto / antes-después
+                    <div className="mt-5 aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-black/20">
+                      <img
+                        src={c.image}
+                        alt={c.title}
+                        className="h-full w-full object-cover opacity-90 transition duration-300 group-hover:opacity-100 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
